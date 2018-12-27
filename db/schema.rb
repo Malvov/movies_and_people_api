@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2018_12_27_052500) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.string "firs_name"
+    t.string "first_name"
     t.string "last_name"
     t.string "aliases"
     t.datetime "created_at", null: false

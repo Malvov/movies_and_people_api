@@ -23,8 +23,15 @@ Ruby on Rails API for movies and people database.
 	Destroys movie with :id
 #### 1.2.5 POST /api/movies
 	Creates movie, params: title, release_year, person_movies_attributes (person_id, person_role)
+	
 ### 1.3 Other
 #### 1.3.1 POST /api/user_token
-	Same returns a JWT token for authentication, params: auth[email], auth[password]
+	Returns a JWT token for authentication, params: auth[email], auth[password]
 #### 1.3.2 POST /api/signup
 	Creates user, params: email, password, passord_confirmation
+## 2. Libraries/frameworks
+	
+
+ 1. Ruby on Rails :heart_eyes:
+ 2. [Knock](https://github.com/nsarno/knock)
+ 3. [JWT](https://github.com/jwt/ruby-jwt)

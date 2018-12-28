@@ -1,4 +1,5 @@
 class API::MoviesController < ApplicationController
+  before_action :authenticate_user, except: [:index]
   before_action :set_movie, only: [:show, :update, :destroy]
 
   # GET /movies

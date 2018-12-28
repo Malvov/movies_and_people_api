@@ -1,4 +1,5 @@
 class API::PeopleController < ApplicationController
+  before_action :authenticate_user, except: [:index]
   before_action :set_person, only: [:show, :update, :destroy]
 
   # GET /people

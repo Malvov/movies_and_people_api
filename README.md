@@ -1,8 +1,8 @@
 # README
 Ruby on Rails API for movies and people database.
-[API Heroku][http://movies-and-people.herokuapp.com/]
-[Interface GitHub][https://github.com/Malvov/browse-interface]
-[Interface live][https://browse-interface.herokuapp.com]
+[API Heroku](http://movies-and-people.herokuapp.com/)
+[Interface GitHub](https://github.com/Malvov/browse-interface)
+[Interface live](https://browse-interface.herokuapp.com)
 ## 1. Endpoints
 ### 1.1 People
 #### 1.1.1 GET /api/people

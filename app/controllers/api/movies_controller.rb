@@ -18,7 +18,7 @@ class API::MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
 
     if @movie.save
-      render json: @movie, status: :created, location: @movie
+      render json: @movie, status: :created, location: api_movies_path(@movie)
     else
       render json: @movie.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,8 @@ class API::MoviesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def movie_params
-      params.require(:movie).permit(:title, :release_year)
+      params.require(:movie).permit(:title, :release_year,
+        person_movies_attributes: [:id, :person_id, :person_role]
+      )
     end
 end

@@ -6,17 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do
+10.times do
     Person.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, aliases: Faker::Lorem.word)
 end
 
-3.times do
+10.times do
     Movie.create!(title: Faker::Lorem.sentence, release_year: (2005..2018).to_a.sample)
 end
 
-# Person.all.each do |person|
-#     person.movies << Movie.all.to_a.sample
-# end
+Person.all.each do |person|
+    person.movies_as_director << Movie.all.to_a.sample
+    person.movies_as_actor_or_actress << Movie.all.to_a.sample
+    person.movies_as_producer << Movie.all.to_a.sample
+end
 
 # PersonMovie.all.each do |pm|
 #     pm.update(person_role: (0..2).to_a.sample)

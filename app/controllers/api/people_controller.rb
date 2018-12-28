@@ -10,15 +10,16 @@ class API::PeopleController < ApplicationController
 
   # GET /people/1
   def show
-    render json: @person
+    render json: @person.info
   end
 
   # POST /people
   def create
+    
     @person = Person.new(person_params)
 
     if @person.save
-      render json: @person, status: :created, location: @person
+      render json: @person, status: :created, location: api_people_path(@person)
     else
       render json: @person.errors, status: :unprocessable_entity
     end
@@ -46,6 +47,8 @@ class API::PeopleController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def person_params
-      params.require(:person).permit(:firs_name, :last_name, :aliases)
+      params.require(:person).permit(:first_name, :last_name, :aliases,
+        person_movies_attributes: [:id, :movie_id, :person_role]
+        )
     end
 end

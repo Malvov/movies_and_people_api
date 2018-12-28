@@ -59,6 +59,10 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.8.0)
     ffi (1.9.25)
     globalid (0.4.1)
@@ -157,6 +161,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
+  dotenv-rails
   faker!
   jwt
   knock

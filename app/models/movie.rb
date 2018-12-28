@@ -5,6 +5,14 @@ class Movie < ApplicationRecord
     has_many :producers, -> { PersonMovie.producer } , through: :person_movies, source: :person
     accepts_nested_attributes_for :person_movies, reject_if: :all_blank
 
+    include PgSearch
+    pg_search_scope :search, against: [:title, :release_year], 
+    using: {
+        tsearch: {
+          prefix: true
+        }
+    }
+
     ROMAN_NUMBERS = {
         1000 => "M",  
         900 => "CM",

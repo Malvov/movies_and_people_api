@@ -4,7 +4,11 @@ class API::MoviesController < ApplicationController
 
   # GET /movies
   def index
-    @movies = Movie.all
+    unless params[:term].blank?
+      @movies = Movie.search(params[:term])
+    else
+      @movies = Movie.all
+    end
 
     render json: @movies
   end

@@ -1,9 +1,11 @@
 # README
 Ruby on Rails API for movies and people database.
+(Heroku)[http://movies-and-people.herokuapp.com/]
+(Interface)[https://github.com/Malvov/browse-interface]
 ## 1. Endpoints
 ### 1.1 People
 #### 1.1.1 GET /api/people
-	People list
+	People list, params: ?term for searching
 #### 1.1.2 GET /api/people/:id
 	Shows person with :id
 #### 1.1.3 PUT /api/people/:id
@@ -14,7 +16,7 @@ Ruby on Rails API for movies and people database.
 	Creates person, params: first_year, last_year, aliases, person_movies_attributes (movie_id, person_role)
 ### 1.2 Movies
 #### 1.2.1 GET /api/movies
-	Movies list
+	Movies list, params: ?term for searching
 #### 1.2.2 GET /api/movies/:id
 	Shows movie with :id
 #### 1.2.3 PUT /api/movies/:id

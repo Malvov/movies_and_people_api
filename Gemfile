@@ -31,8 +31,9 @@ gem 'rack-cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # nice looking rails console
   gem 'pry-rails'
-  gem 'dotenv-rails'
+  # fake data
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 

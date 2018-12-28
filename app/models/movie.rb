@@ -21,6 +21,7 @@ class Movie < ApplicationRecord
         1 => "I"
     }
 
+    #thanks stackexchange https://codereview.stackexchange.com/a/7939
     def romanized_release_year
         n = release_year
         roman = ""
@@ -29,5 +30,15 @@ class Movie < ApplicationRecord
             n = n % value
         end
         roman    
+    end
+
+    def info(display_people = nil)
+        info = { title: title, release_year: romanized_release_year }
+        if display_people
+            info[:casting] = casting
+            info[:directors] = directors
+            info[:producers] = producers
+        end
+        info
     end
 end

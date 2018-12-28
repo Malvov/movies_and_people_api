@@ -10,7 +10,7 @@ class API::MoviesController < ApplicationController
 
   # GET /movies/1
   def show
-    render json: @movie
+    render json: @movie.info(true)
   end
 
   # POST /movies

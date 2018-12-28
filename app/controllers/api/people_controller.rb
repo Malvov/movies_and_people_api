@@ -4,7 +4,11 @@ class API::PeopleController < ApplicationController
 
   # GET /people
   def index
-    @people = Person.all
+    unless params[:term].blank?
+      @people = Person.search(params[:term])
+    else
+      @people = Person.all
+    end
 
     render json: @people
   end

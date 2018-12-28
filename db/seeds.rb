@@ -20,6 +20,6 @@ Person.all.each do |person|
     person.movies_as_producer << Movie.all.to_a.sample
 end
 
-# PersonMovie.all.each do |pm|
-#     pm.update(person_role: (0..2).to_a.sample)
-# end
+5.times do |n|
+    User.create!(email: "mail#{n}@mail.com", password: 'password', password_confirmation: 'password')
+end

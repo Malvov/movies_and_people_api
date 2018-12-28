@@ -5,12 +5,20 @@ class Person < ApplicationRecord
     has_many :movies_as_producer, -> { PersonMovie.producer } , through: :person_movies, source: :movie
     accepts_nested_attributes_for :person_movies, reject_if: :all_blank
 
+    include PgSearch
+    pg_search_scope :search, against: [:first_name, :last_name, :aliases], 
+    using: {
+        tsearch: {
+          prefix: true
+        }
+    }
+
     def info
         { 
             'person': self, 
-            'movies as actor or actress': movies_as_actor_or_actress.map { |movie| movie.info }, 
-            'movies as director': movies_as_director.map { |movie| movie.info }, 
-            'movies as producer': movies_as_producer.map { |movie| movie.info }
+            'movies_as_actor_or_actress': movies_as_actor_or_actress.map { |movie| movie.info }, 
+            'movies_as_director': movies_as_director.map { |movie| movie.info }, 
+            'movies_as_producer': movies_as_producer.map { |movie| movie.info }
         }
     end
 end

@@ -5,28 +5,14 @@ class Movie < ApplicationRecord
     has_many :producers, -> { PersonMovie.producer } , through: :person_movies, source: :person
     accepts_nested_attributes_for :person_movies, reject_if: :all_blank
 
+    validates_presence_of :title, :release_year
+    
     include PgSearch
     pg_search_scope :search, against: [:title, :release_year], 
     using: {
         tsearch: {
           prefix: true
         }
-    }
-
-    ROMAN_NUMBERS = {
-        1000 => "M",  
-        900 => "CM",
-        500 => "D",  
-        400 => "CD",
-        100 => "C",  
-        90 => "XC",  
-        50 => "L",  
-        40 => "XL",  
-        10 => "X",  
-        9 => "IX",  
-        5 => "V",  
-        4 => "IV",  
-        1 => "I"
     }
 
     #thanks stackexchange https://codereview.stackexchange.com/a/7939
@@ -49,4 +35,23 @@ class Movie < ApplicationRecord
         end
         info
     end
+
+    private
+    
+    ROMAN_NUMBERS = {
+        1000 => "M",  
+        900 => "CM",
+        500 => "D",  
+        400 => "CD",
+        100 => "C",  
+        90 => "XC",  
+        50 => "L",  
+        40 => "XL",  
+        10 => "X",  
+        9 => "IX",  
+        5 => "V",  
+        4 => "IV",  
+        1 => "I"
+    }
+
 end

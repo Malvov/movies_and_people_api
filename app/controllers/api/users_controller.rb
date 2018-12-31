@@ -4,7 +4,7 @@ class API::UsersController < ApplicationController
         #debugger
         user = User.new(user_params)
         if user.save
-            render json: {status: 200, msg: 'User was created.'}
+            render json: { status: 200, msg: 'User was created.' }
         else
             render json: { status: 403, msg: 'bad request' }
         end

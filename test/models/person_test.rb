@@ -8,10 +8,6 @@ class PersonTest < ActiveSupport::TestCase
     @person = Person.new(first_name: 'Manuel', last_name: 'Olivares')
   end
 
-  test 'should be valid' do
-    assert @person.valid?
-  end
-
   test 'person info should be present' do
     @person.first_name = ''
     @person.last_name = ''

@@ -9,7 +9,6 @@ class User < ApplicationRecord
     }
   
     # Make sure email is present and unique.
-    validates_presence_of     :email
-    validates_uniqueness_of   :email
+    validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
     
 end

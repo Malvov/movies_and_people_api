@@ -61,3 +61,6 @@ gem 'knock'
 gem 'jwt'
 
 gem 'pg_search'
+
+
+gem 'active_model_serializers'

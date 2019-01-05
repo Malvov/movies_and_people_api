@@ -26,16 +26,6 @@ class Movie < ApplicationRecord
         roman    
     end
 
-    def info(display_people = nil)
-        info = { title: title, release_year: romanized_release_year }
-        if display_people
-            info[:casting] = casting
-            info[:directors] = directors
-            info[:producers] = producers
-        end
-        info
-    end
-
     private
     
     ROMAN_NUMBERS = {

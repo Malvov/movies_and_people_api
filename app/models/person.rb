@@ -16,15 +16,6 @@ class Person < ApplicationRecord
         }
     }
 
-    def info
-        { 
-            'person': self, 
-            'movies_as_actor_or_actress': movies_as_actor_or_actress.map { |movie| movie.info }, 
-            'movies_as_director': movies_as_director.map { |movie| movie.info }, 
-            'movies_as_producer': movies_as_producer.map { |movie| movie.info }
-        }
-    end
-
     private
 
     def unique_person_full_name

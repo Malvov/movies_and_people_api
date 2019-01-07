@@ -11,12 +11,12 @@ module API
         @people = Person.all
       end
 
-      render json: @people
+      render json: @people, adapter: nil
     end
 
     # GET /people/1
     def show
-      render json: @person
+      render json: @person.info
     end
 
     # POST /people

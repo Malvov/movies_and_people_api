@@ -8,6 +8,15 @@ class Person < ApplicationRecord
     validates_presence_of :first_name, :last_name
     validate :unique_person_full_name
 
+    def info
+        { 
+            'person': self, 
+            'movies_as_actor_or_actress': movies_as_actor_or_actress.map { |movie| movie.info }, 
+            'movies_as_director': movies_as_director.map { |movie| movie.info }, 
+            'movies_as_producer': movies_as_producer.map { |movie| movie.info }
+        }
+    end
+
     include PgSearch
     pg_search_scope :search, against: [:first_name, :last_name, :aliases], 
     using: {

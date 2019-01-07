@@ -10,12 +10,12 @@ module API
       else
         @movies = Movie.all
       end
-      render json: @movies
+      render json: @movies, adapter: nil
     end
 
     # GET /movies/1
     def show
-      render json: @movie
+      render json: @movie.info(true), adapter: nil
     end
 
     # POST /movies
@@ -23,7 +23,7 @@ module API
       @movie = Movie.new(movie_params)
 
       if @movie.save
-        render json: @movie, status: :created, location: api_movies_path(@movie)
+        render json: @movie, status: :created, location: api_movies_path(@movie), adapter: nil
       else
         render json: @movie.errors, status: :unprocessable_entity
       end
@@ -32,7 +32,7 @@ module API
     # PATCH/PUT /movies/1
     def update
       if @movie.update(movie_params)
-        render json: @movie
+        render json: @movie, adapter: nil
       else
         render json: @movie.errors, status: :unprocessable_entity
       end
